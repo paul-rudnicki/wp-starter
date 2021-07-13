@@ -6,7 +6,7 @@
     <?php wp_head(); ?>
 </head>
 <body class="home">
-
+    <?php echo do_shortcode( '[dev-starter-test]' ); ?>
     <?php wp_footer(); ?>
 </body>
 </html>

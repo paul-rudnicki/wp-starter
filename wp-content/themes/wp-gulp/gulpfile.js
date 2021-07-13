@@ -11,8 +11,8 @@ var gulp = require("gulp"),
 gulp.task('upload', function(){
     var conn = ftp.create({
         host: "serwer2008652.home.pl",
-        user: "",
-        password: ""
+        user: "paul@dev-solutions.online",
+        password: "eIh1NYx5"
     })
 
     return gulp.src("../starter/**/*")
