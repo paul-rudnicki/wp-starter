@@ -1,0 +1,13 @@
+{
+    "name": "pawel/starter",
+    "authors": [
+        {
+            "name": "Paweł Rudnicki",
+            "email": "pawel.rudnicki@yahoo.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Dev\\": "src"}
+    },
+    "require": {}
+}
