@@ -31,21 +31,29 @@ gulp.task("css", function(){
         .pipe(gulp.dest("../starter/dist/css/"))
 })
 
-gulp.task('concatJs', function() {
-  return gulp.src('../starter/js/**/*.js')
-    .pipe(concat('all.js'))
+gulp.task('concatFrontJs', function() {
+  return gulp.src('../starter/js/front/**/*.js')
+    .pipe(concat('front.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('../starter/dist/js/'));
+    .pipe(gulp.dest('../starter/dist/js/front/'));
+});
+
+gulp.task('concatAdminJs', function() {
+  return gulp.src('../starter/js/admin/**/*.js')
+    .pipe(concat('admin.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('../starter/dist/js/admin/'));
 });
 
 gulp.task("watch", function(){
 
     gulp.watch("../starter/sass/**/*.sass", ["css"]) 
-    // gulp.watch(["../starter/**/*.js"], ["js"])
+    gulp.watch(["../starter/js/admin/**/*.js"], ["concatAdminJs"])
+    gulp.watch(["../starter/js/front/**/*.js"], ["concatFrontJs"])
 })
 
 gulp.task("build", function(){
-    runSequence("css", "concatJs", "upload") 
+    runSequence("css", "concatAdminJs", "concatFrontJs", "upload") 
 })
 
-gulp.task("default", ["css", "concatJs", "watch"])
+gulp.task("default", ["css", "concatAdminJs", "concatFrontJs", "watch"])

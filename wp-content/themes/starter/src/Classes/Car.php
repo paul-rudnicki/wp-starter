@@ -1,6 +1,10 @@
 <?php
 namespace Dev\Classes;
 
+if (!defined('WPINC')) {
+    die;
+}
+
 class Car
 {
 	
